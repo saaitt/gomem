@@ -6,13 +6,13 @@ import (
 )
 
 type useCase struct {
-	blocks *map[string]domain.Block
+	blocks map[string]*domain.Block
 	m      *sync.RWMutex
 }
 
 func New() domain.UseCase {
 	uc := useCase{
-		blocks: new(map[string]domain.Block),
+		blocks: map[string]*domain.Block{},
 		m:      new(sync.RWMutex),
 	}
 	return &uc
